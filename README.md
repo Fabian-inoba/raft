@@ -3,7 +3,7 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
   <br>
-  R-A-F-T
+  RAFT
   <br>
 </h1>
 
@@ -19,8 +19,11 @@
   <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8f943194-017b-4d22-8ed6-1ce5266ce6f3" alt="RAFT RAFT RAFT" />
+</p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
 
 ## Key Features
 
