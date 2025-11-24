@@ -29,7 +29,7 @@ class Program {
 
 
         int cnt = 1;
-
+        //Now I add some comments
         AnsiConsole.MarkupLine("Press [yellow]CTRL+C[/] to exit");
         await AnsiConsole.Live(layout)
             .AutoClear(false)
@@ -54,6 +54,7 @@ class Program {
                     }
 
                     calender.AddCalendarEvent(2025, 11, cnt);
+                    
 
                     ctx.Refresh();
                     await Task.Delay(500);
