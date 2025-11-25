@@ -54,7 +54,7 @@ class Program {
                     }
 
                     calender.AddCalendarEvent(2025, 11, cnt);
-                    
+                    calender2.AddCalendarEvent(2025, 12, cnt);
 
                     ctx.Refresh();
                     await Task.Delay(500);
