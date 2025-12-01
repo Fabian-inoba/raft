@@ -12,7 +12,7 @@ public class CompLayout {
         controls
     }
 
-    private static readonly Dictionary<Section, string> sectionNames = new Dictionary<Section, string>() {
+    private readonly Dictionary<Section, string> sectionNames = new Dictionary<Section, string>() {
         { Section.root, "root" },
         { Section.calendar, "Calendar" },
         { Section.details, "Details" },
@@ -20,13 +20,17 @@ public class CompLayout {
         { Section.controls, "Controls" }
     };
     
-    public Layout? Layout { get; set; } = new Layout(sectionNames[Section.root])
-        .SplitColumns(
-            new Layout(sectionNames[Section.calendar]), 
-            new Layout(sectionNames[Section.details])
-                .SplitRows(
-                    new Layout(sectionNames[Section.statistics]),
-                    new Layout(sectionNames[Section.controls])));
+    public Layout? Layout { get; set; }
+    
+    public CompLayout() {
+        Layout = new Layout(sectionNames[Section.root])
+            .SplitColumns(
+                new Layout(sectionNames[Section.calendar]), 
+                new Layout(sectionNames[Section.details])
+                    .SplitRows(
+                        new Layout(sectionNames[Section.statistics]),
+                        new Layout(sectionNames[Section.controls])));
+    }
 
     public void UpdateContent(Section section, IRenderable content) {
         Layout?[sectionNames[section]].Update(content);
