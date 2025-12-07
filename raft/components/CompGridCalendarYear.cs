@@ -25,4 +25,9 @@ public class CompGridCalendarYear {
         CalendarGird.AddRow(calendars[4], calendars[5], calendars[6], calendars[7]);
         CalendarGird.AddRow(calendars[8], calendars[9], calendars[10], calendars[11]);
     }
+
+    public Grid MarkCalendar(int index, Style style) {
+        calendars[index].BorderStyle = style;
+        return CalendarGird;
+    }
 }
