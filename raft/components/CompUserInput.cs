@@ -8,6 +8,10 @@ public class CompUserInput {
         PreviousCalendarDay,        // LeftArrow
         PreviousCalendarMonth,      // SHIFT+LeftArrow
         PreviousCalendarYear,       // CTL+SHIFT+LeftArrow
+        DownCalendarDay,            // DownArrow
+        DownCalendarMonth,          // SHIFT+UpDown
+        UpCalendarDay,              // UpArrow
+        UpCalendarMonth,            // SHIFT+UpArrow
         StatisticMonth,             // ALT+M
         StatisticYear,              // ALT+Y
         SwitchProfile,              // ALT+P
@@ -17,7 +21,7 @@ public class CompUserInput {
         None
     }
     
-    public InputType ReadUserInput() {
+    public InputType GetUserInput() {
         Console.TreatControlCAsInput = true;
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
@@ -40,6 +44,8 @@ public class CompUserInput {
             {
                 ConsoleKey.RightArrow => InputType.NextCalendarMonth,
                 ConsoleKey.LeftArrow  => InputType.PreviousCalendarMonth,
+                ConsoleKey.DownArrow  => InputType.DownCalendarMonth,
+                ConsoleKey.UpArrow  => InputType.UpCalendarMonth,
                 _ => InputType.None
             };
         }
@@ -69,6 +75,8 @@ public class CompUserInput {
         {
             ConsoleKey.LeftArrow  => InputType.PreviousCalendarDay,
             ConsoleKey.RightArrow => InputType.NextCalendarDay,
+            ConsoleKey.DownArrow  => InputType.DownCalendarDay,
+            ConsoleKey.UpArrow    => InputType.UpCalendarDay,
             ConsoleKey.Escape     => InputType.Exit,
             _ => InputType.None
         };
