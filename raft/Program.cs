@@ -23,14 +23,13 @@ class Program {
         await AnsiConsole.Live(UiManager.MainLayout.Layout)
             .StartAsync(async ctx => {
                 while (inputType != CompUserInput.InputType.Exit) {
+                    
                     inputType = userInput.GetUserInput();
                     UiManager.MainLayout.UpdateContent(CompLayout.Section.statistics, new Panel(
                         Align.Center(
                             new Markup($"Your input [blue]{inputType}[/]"),
-                            VerticalAlignment.Middle)));
-                    UiManager.MainLayout.UpdateContent(CompLayout.Section.calendar, UiManager.CalendarYearGird.CalendarGird);
+                            VerticalAlignment.Middle)).Expand());
                     ctx.Refresh();
-                    await Task.Delay(TimeSpan.FromSeconds(1));
                 }
             });
         
