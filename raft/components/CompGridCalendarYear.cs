@@ -11,13 +11,15 @@ public class CompGridCalendarYear {
     
     private List<Calendar> calendars = new List<Calendar>();
     
-    public CompGridCalendarYear(int year) {
+    public CompGridCalendarYear(int year, Style? customStyle = null) {
 
         CalendarGird = new Grid();
         CalendarGird.AddColumns(GridColumns);
         
         for (int cnt = 1; cnt <= 12; cnt++) {
-            calendars.Add(new Calendar(year, cnt){ Culture = CultureInfo.CurrentCulture });
+            calendars.Add(new Calendar(year, cnt) {
+                Culture = CultureInfo.CurrentCulture
+            });
         }
 
         CalendarGird.AddRow(calendars[0], calendars[1], calendars[2], calendars[3]);
