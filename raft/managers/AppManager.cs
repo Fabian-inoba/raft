@@ -11,7 +11,8 @@ public class AppManager {
         settings ??= new AppSettings {
             ConsoleHeight = Console.WindowHeight,
             ConsoleWidth = Console.WindowWidth,
-            MainLayoutPadding = 2
+            MainLayoutPadding = 0,
+            ShowInFullScreen = true
         };
 
         Settings = settings;

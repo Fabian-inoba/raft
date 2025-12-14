@@ -22,19 +22,29 @@ public class LayoutView {
     };
 
     public LayoutView(AppSettings settings) {
-        CalculatedCalendarLayoutSize = (int)Math.Floor(settings.ConsoleWidth / 10.0 * 7) - settings.MainLayoutPadding;
-        CalculatedMainLayoutSize = (int)Math.Floor(settings.ConsoleWidth / 10.0 * 3) - settings.MainLayoutPadding;
+        var partLeft = 7;
+        var partRight = 3;
+        
+        if (settings.ShowInFullScreen) partLeft = 9;
+        
+        CalculatedCalendarLayoutSize =
+            (int)Math.Floor(settings.ConsoleWidth / 10.0 * partLeft) - settings.MainLayoutPadding;
+        CalculatedMainLayoutSize =
+            (int)Math.Floor(settings.ConsoleWidth / 10.0 * partRight) - settings.MainLayoutPadding;
 
         Layout = new Layout(sectionNames[Section.root])
             .SplitColumns(
                 new Layout(sectionNames[Section.calendar])
                     .Ratio(2)
                     .Size(CalculatedCalendarLayoutSize),
-                new Layout(sectionNames[Section.details]).Invisible()
+                new Layout(sectionNames[Section.details])
                     .SplitRows(
                         new Layout(sectionNames[Section.statistics]),
                         new Layout(sectionNames[Section.controls])
                     ).Size(CalculatedMainLayoutSize));
+
+        if (settings.ShowInFullScreen)
+            Layout[sectionNames[Section.details]].Invisible();
     }
 
     private int CalculatedCalendarLayoutSize { get; }
